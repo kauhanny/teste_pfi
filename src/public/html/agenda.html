@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agendar Serviço</title>
+  <link rel="stylesheet" href="../css/agenda.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Agendar Serviço</h1>
+
+    <form id="formAgendamento">
+      <label for="profissional">Profissional</label>
+      <select id="profissional" required>
+        <option value="">Selecione</option>
+        <option value="Maria Silva">Maria Silva</option>
+        <option value="Maria Souza">Maria Souza</option>
+        <option value="Ana Costa">Ana Costa</option>
+        <option value="Joana Lima">Joana Lima</option>
+      </select>
+
+      <label for="servico">Serviço</label>
+      <input type="text" id="servico" list="listaServicos" placeholder="Digite ou escolha um serviço" required>
+      <datalist id="listaServicos">
+        <option value="Corte">
+        <option value="Pintura">
+        <option value="Manicure">
+        <option value="Pedicure">
+      </datalist>
+
+      <p id="valorServico"><strong>Valor:</strong> R$ 0,00</p>
+
+      <div id="pixContainer" style="display:none;">
+        <button type="button" id="btnPix">Pagar com PIX</button>
+      </div>
+
+      <div id="msgPagamento" style="display:none; color:green; font-weight:bold; margin-top:10px;">
+        ✅ Pagamento via PIX confirmado!
+      </div>
+
+      <label for="data">Data</label>
+      <input type="date" id="data" required>
+
+      <label for="hora">Hora</label>
+      <input type="time" id="hora" required>
+
+      <button type="submit" id="btnAgendar" disabled>Agendar</button>
+    </form>
+
+    <button class="btn-calendario" onclick="window.location.href='/calendario'">
+      Ver calendário de disponibilidade
+    </button>
+  </div>
+
+  <!-- Modal PIX -->
+  <div id="pixModal" class="modal">
+    <div class="modal-content">
+      <h2>Pagamento via PIX</h2>
+      <p>Escaneie o QR Code abaixo para realizar o pagamento:</p>
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=pagamento_pix_exemplo" alt="QR Code PIX">
+      <button id="btnConfirmarPix">OK</button>
+    </div>
+  </div>
+
+  <script src="../js/agenda.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
